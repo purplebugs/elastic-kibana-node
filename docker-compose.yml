@@ -1,0 +1,53 @@
+#### USAGE: 
+#### To start run: docker-compose up
+#### To stop run: docker-compose down
+#### To delete the data volumes when stopping run: docker-compose down -v
+
+# elasticsearch, kibana, node.js app TODO
+
+version: '3'
+
+volumes:
+  data01:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge
+
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+
+  kibana: 
+    image: docker.elastic.co/kibana/kibana:7.5.0
+    ports:
+      - 5601:5601
+    networks:
+      - elastic
+
+# TODO my node.js app
+# To test elasticesearch is running: curl -X GET "localhost:9200/_cat/nodes?v&pretty"
+#
+# Expected response:
+#ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name
+#172.27.0.2           23          62   1    0.34    0.24     0.18 dilm      *      es01
+#
+
+# TODO? Alternatively https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html#_c_customized_image
