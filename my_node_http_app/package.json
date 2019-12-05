@@ -1,8 +1,8 @@
 {
   "name": "my_node_http_app",
   "version": "1.0.0",
-  "description": "Simple node app which calls the elasticsearch API",
-  "main": "index.js",
+  "description": "Simple node web server that shows responses of Elasticsearch API requests on localhost port 8080",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

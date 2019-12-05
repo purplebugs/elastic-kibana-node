@@ -1,5 +1,7 @@
 const fetch = require("node-fetch"); // Using module from npm
 
+// TODO remove this file, or move it to a separate app altogether
+
 // To run: node index.js
 console.log('Hello World!');
 

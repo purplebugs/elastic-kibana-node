@@ -11,9 +11,10 @@ HOST = '0.0.0.0';
 // App
 const app = express();
 
-app.get('/', (req, res) => {
+// Create node web server
+app.get('/', (req, res) => { 
 
-  fetch("http://0.0.0.0:9200")
+  fetch("http://0.0.0.0:9200") // Get status of Elasticsearch #TODO make this address compatible with docker
   .then((res) => {
      return res.text()
   })
