@@ -4,6 +4,7 @@
   "description": "Simple node web server that shows responses of Elasticsearch API requests on localhost port 8080",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

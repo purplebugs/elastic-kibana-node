@@ -14,7 +14,7 @@ const app = express();
 // Create node web server
 app.get('/', (req, res) => { 
 
-  fetch("http://0.0.0.0:9200") // Get status of Elasticsearch #TODO make this address compatible with docker
+  fetch("http://0.0.0.0:9200") // Get status of Elasticsearch
   .then((res) => {
      return res.text()
   })
