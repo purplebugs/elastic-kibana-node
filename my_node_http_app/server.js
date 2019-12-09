@@ -14,15 +14,15 @@ const app = express();
 // Create node web server
 app.get('/', (req, res) => { 
 
-  fetch("http://0.0.0.0:9200") // Get status of Elasticsearch
-  .then((res) => {
-     return res.text()
-  })
-  .then((body) => {
-      res.send(body)
-  }).catch((error) => {
-      res.send(error);
-  });
+// Use promise all construct to run requests synchronously
+Promise.all([
+    fetch("http://0.0.0.0:9200").then((fetchResponses) => {return fetchResponses.json()}), // To be able to access json object properties
+    fetch("http://0.0.0.0:9200/_cat/indices?v").then((fetchResponses) => {return fetchResponses.text()})
+]).then((bodies) => {
+    res.send(
+        bodies[0].name + // Able to access json object properties
+        bodies[1]) // This is text
+}).catch((error) => {res.send(error)})
 
 });
 
