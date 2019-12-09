@@ -1,7 +1,7 @@
-#### USAGE: 
+#### USAGE:
+#### Pre-requisite, node.js app docker image is built. See below
 #### To start run: docker-compose up
-#### To stop run: docker-compose down
-#### To delete the data volumes when stopping run: docker-compose down -v
+#### To stop and delete the data volumes run: docker-compose down -v
 
 # elasticsearch, kibana, node.js app
 
@@ -46,15 +46,11 @@ services:
 
 
   # my node.js app, which tests if Elasticsearch is running using http://<host>:9200 and sends response to http://<host>:8080
+  # Pre-requisite: build the image first using the following, updating the version as appropriate
+  # docker build -t purplebugs/my_node_http_app:1.1 .
   app:
-    build: my_node_http_app
+    image: purplebugs/my_node_http_app:1.1
     ports:
       - 8080:8080
     networks:
       - elastic
-
-
-# TODO Test elasticesearch is running: curl -X GET "localhost:9200/_cat/nodes?v&pretty"
-# Expected response:
-#ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name
-#172.27.0.2           23          62   1    0.34    0.24     0.18 dilm      *      es01
