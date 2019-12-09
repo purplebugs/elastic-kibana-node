@@ -56,11 +56,8 @@ docker-compose up
 
 ## Verify the app is running as expected
 
-Navigate to 
+Navigate to http://localhost:8080/
 
-```
-http://localhost:8080/
-```
 
 The response should show the output of the node.js app.  Example response at the time of writing:
 
