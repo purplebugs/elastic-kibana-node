@@ -9,7 +9,7 @@ Have a simple way to quickly install and run Elasticsearch, Kibana and node.js t
 
 Work in progress...
 
-Current status: The node.js app uses the Elasticsearch API to get info about the current cluster and indices and sends the response to http://<host>:8080
+Current status: The node.js app uses the Elasticsearch API to get info about the current cluster and indices and sends the response to http://localhost:8080
 
 
 ## Pre-Requisites
@@ -29,7 +29,7 @@ Current status: The node.js app uses the Elasticsearch API to get info about the
 
 ## Build the node.js docker image
 
-Build a versioned image of the node.js app, as per best practise when developing apps
+Build a versioned image of the node.js app
 
 ```
 docker build -t purplebugs/my_node_http_app:1.1 .
