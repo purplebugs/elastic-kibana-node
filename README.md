@@ -1,24 +1,122 @@
 # elastic-kibana-node
 
-Proof of concept of elasticsearch kibana and a node.js app working together
+Elasticsearch, Kibana and a node.js app working together using Docker
+
+
+## Purpose
+
+Have a simple way to quickly install and run Elasticsearch, Kibana and node.js together in order to automate getting data into Elasticsearch, and get the data showing on Kibana Dashboards as quickly and painlessly as possible.
 
 Work in progress...
 
-## Build the docker file
+Current status: The node.js app uses the Elasticsearch API to get info about the current cluster and indices and sends the response to http://<host>:8080
+
+
+## Pre-Requisites
+
+1. Install [docker](https://docs.docker.com/install/)
+2. Install [docker-compose](https://docs.docker.com/compose/install/)
+3. Clone this repo
+
+
+## Steps to take
+
+1. Build the node.js docker image
+2. Run docker-compose
+3. Verify the app is running as expected
+4. Be familiar with useful commands
+
+
+## Build the node.js docker image
+
+Build a versioned image of the node.js app, as per best practise when developing apps
+
 ```
-docker build -t purplebugs/node-web-app:1.0 .
+docker build -t purplebugs/my_node_http_app:1.1 .
 ```
 
-## Run the docker image which is an instance of the app
+
+To verify the image is created, look for the app tagged with that version
+
 ```
-docker run --rm -p 8090:8080 -d --name node-app purplebugs/node-web-app:1.0
+docker images
 ```
 
-## Check the app is running as expected
+The node.js app will not be running until the docker-compose command is run in the next step.
 
-TO DO
 
-## Delete the container running the app
+## Run docker-compose
+
+Spin up a containerised instance of Elasticsearch, Kibana and the node.js application
+
+```
+docker-compose up
+```
+
+
+## Verify the app is running as expected
+
+Navigate to 
+
+```
+http://localhost:8080/
+```
+
+The response should show the output of the node.js app.  Example response at the time of writing:
+
+```
+es01health status index uuid pri rep docs.count docs.deleted store.size pri.store.size green open .kibana_task_manager_1 On0cPrf4QB6irSdX7oEHjw 1 0 2 1 43.4kb 43.4kb green open .apm-agent-configuration QZzgMQroTZusSdMpSjRpzA 1 0 0 0 283b 283b green open .kibana_1 g1gGkgX9Qh-2UGyFfewlhg 1 0 4 0 16.6kb 16.6kb
+```
+
+Get familiar with the commands below for troubleshooting if the output is not as expected.
+
+
+
+## Be familiar with useful commands
+
+
+### List the Docker containers
+
+This will show a clean overview of containers and their states
+
+```docker-compose ps```
+
+
+### List the Docker containers and images
+
+This will show more info such as how long the containers have been running
+
+```
+docker ps
+```
+
+
+### Stop the Docker container
+
+Stop the containerised instance of Elasticsearch, Kibana and the node.js application
+
+```
+docker-compose down
+```
+
+
+To stop and delete the data volumes:
+
+```
+docker-compose down -v
+```
+
+### Run the docker image which is an instance of the app
+
+TODO: remove this? since not relevant in the context of docker-compose
+```
+docker run --rm -p 8090:8080 -d --name node-app purplebugs/my_node_http_app:1.0
+```
+
+
+### Delete the container running the app
+
+TODO: remove this? since not relevant in the context of docker-compose
 
 Once happy with the app and no longer require it to be running, delete the container running the app
 
@@ -26,7 +124,8 @@ Once happy with the app and no longer require it to be running, delete the conta
 docker container rm --force node-app
 ```
 
-## Troubleshooting the node app
+
+### Troubleshooting the node app
 
 Enter the container for troubleshooting
 

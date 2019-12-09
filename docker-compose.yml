@@ -1,7 +1,4 @@
-#### USAGE:
-#### Pre-requisite, node.js app docker image is built. See below
-#### To start run: docker-compose up
-#### To stop and delete the data volumes run: docker-compose down -v
+### USAGE: See readme
 
 # elasticsearch, kibana, node.js app
 
@@ -46,8 +43,7 @@ services:
 
 
   # my node.js app, which tests if Elasticsearch is running using http://<host>:9200 and sends response to http://<host>:8080
-  # Pre-requisite: build the image first using the following, updating the version as appropriate
-  # docker build -t purplebugs/my_node_http_app:1.1 .
+  # Pre-requisite: build the image first as per readme
   app:
     image: purplebugs/my_node_http_app:1.1
     ports:
