@@ -29,7 +29,7 @@ Current status: The node.js app uses the Elasticsearch API to get info about the
 4. Optional: Become familiar with useful Docker commands
 
 
-## Build the node.js docker image
+### Build the node.js docker image
 
 Build a versioned image of the node.js app
 
@@ -47,7 +47,7 @@ docker images
 The node.js app will not be running until the docker-compose command is run in the next step.
 
 
-## Run docker-compose
+### Run docker-compose
 
 Spin up a containerised instance of Elasticsearch, Kibana and the node.js application
 
@@ -56,7 +56,7 @@ docker-compose up
 ```
 
 
-## Verify the app is running as expected
+### Verify the app is running as expected
 
 Navigate to http://localhost:8080/
 
@@ -73,17 +73,17 @@ Get familiar with the commands below for troubleshooting if the output is not as
 
 
 
-## Optional: Become familiar with useful Docker commands
+### Optional: Become familiar with useful Docker commands
 
 
-### List the Docker containers
+#### List the Docker containers
 
 This will show a clean overview of containers and their states
 
 ```docker-compose ps```
 
 
-### List the Docker containers and images
+#### List the Docker containers and images
 
 This will show more info such as how long the containers have been running
 
@@ -92,7 +92,7 @@ docker ps
 ```
 
 
-### Stop the Docker container
+#### Stop the Docker container
 
 Stop the containerised instance of Elasticsearch, Kibana and the node.js application
 
@@ -106,25 +106,6 @@ To stop and delete the data volumes:
 ```
 docker-compose down -v
 ```
-
-### Run the docker image which is an instance of the app
-
-TODO: remove this? since not relevant in the context of docker-compose
-```
-docker run --rm -p 8090:8080 -d --name node-app purplebugs/my_node_http_app:1.0
-```
-
-
-### Delete the container running the app
-
-TODO: remove this? since not relevant in the context of docker-compose
-
-Once happy with the app and no longer require it to be running, delete the container running the app
-
-```
-docker container rm --force node-app
-```
-
 
 ### Troubleshooting the node app
 
