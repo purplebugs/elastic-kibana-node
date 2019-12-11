@@ -5,11 +5,13 @@ Elasticsearch, Kibana and a node.js app working together using Docker
 
 ## Purpose
 
-Have a simple way to quickly install and run Elasticsearch, Kibana and node.js together in order to automate getting data into Elasticsearch, and get the data showing on Kibana Dashboards as quickly and painlessly as possible.
+Have a simple way to quickly install and run Elasticsearch, Kibana and node.js together
+
+The larger goal is to automate getting data into Elasticsearch, and get the data showing on Kibana Dashboards as quickly and painlessly as possible
 
 Work in progress...
 
-Current status: The node.js app uses the Elasticsearch API to get info about the current cluster and indices and sends the response to http://localhost:8080
+Current status: The node.js app uses the Elasticsearch API to get info about the current cluster and indices and sends the response to http://0.0.0.0:8080
 
 
 ## Pre-Requisites
@@ -24,7 +26,7 @@ Current status: The node.js app uses the Elasticsearch API to get info about the
 1. Build the node.js docker image
 2. Run docker-compose
 3. Verify the app is running as expected
-4. Be familiar with useful commands
+4. Optional: Become familiar with useful Docker commands
 
 
 ## Build the node.js docker image
@@ -36,7 +38,7 @@ docker build -t purplebugs/my_node_http_app:1.1 .
 ```
 
 
-To verify the image is created, look for the app tagged with that version
+Optional: Verify the image is created by looking for the app tagged with that version
 
 ```
 docker images
@@ -69,7 +71,7 @@ Get familiar with the commands below for troubleshooting if the output is not as
 
 
 
-## Be familiar with useful commands
+## Optional: Become familiar with useful Docker commands
 
 
 ### List the Docker containers
