@@ -60,6 +60,8 @@ docker-compose up
 
 Navigate to http://localhost:8080/
 
+You might need to wait around 20 seconds for Elasticsearch and Kibana to be up and running.
+
 
 The response should show the output of the node.js app.  Example response at the time of writing:
 
