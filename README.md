@@ -107,7 +107,7 @@ To stop and delete the data volumes:
 docker-compose down -v
 ```
 
-### Troubleshooting the node app
+#### Troubleshooting the node app
 
 Enter the container for troubleshooting
 
