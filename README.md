@@ -31,6 +31,12 @@ Current status: The node.js app uses the Elasticsearch API to get info about the
 
 ### Build the node.js docker image
 
+Navigate to the directory containing the Dockerfile
+
+```
+cd my_node_http_app
+```
+
 Build a versioned image of the node.js app
 
 ```
