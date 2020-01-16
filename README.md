@@ -75,8 +75,9 @@ The response should show the output of the node.js app.  Example response at the
 es01health status index uuid pri rep docs.count docs.deleted store.size pri.store.size green open .kibana_task_manager_1 On0cPrf4QB6irSdX7oEHjw 1 0 2 1 43.4kb 43.4kb green open .apm-agent-configuration QZzgMQroTZusSdMpSjRpzA 1 0 0 0 283b 283b green open .kibana_1 g1gGkgX9Qh-2UGyFfewlhg 1 0 4 0 16.6kb 16.6kb
 ```
 
-Get familiar with the commands below for troubleshooting if the output is not as expected.
+Get familiar with the commands below for troubleshooting if the app is not as expected.
 
+Note: Kibana is now available at http://localhost:5601/
 
 
 ### Optional: Become familiar with useful Docker commands
