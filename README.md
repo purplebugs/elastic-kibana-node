@@ -118,7 +118,7 @@ docker-compose down -v
 Enter the container for troubleshooting
 
 ```
-docker exec -it node-app /bin/bash
+docker exec -it elastic-kibana-node_app_1 /bin/bash
 ```
 
 Once inside the container, check the output of the app
