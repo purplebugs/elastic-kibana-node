@@ -23,10 +23,16 @@ Current status: The node.js app uses the Elasticsearch API to get info about the
 
 ## Steps to take
 
-1. Build the node.js docker image
+1. Install the repo locally
+2. Build the node.js docker image
 2. Run docker-compose
 3. Verify the app is running as expected
 4. Optional: Become familiar with useful Docker commands
+
+
+### Install the repo locally
+
+```npm install```
 
 
 ### Build the node.js docker image
