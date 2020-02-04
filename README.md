@@ -19,6 +19,7 @@ Current status: The node.js app uses the Elasticsearch API to get info about the
 1. Install [docker](https://docs.docker.com/install/)
 2. Install [docker-compose](https://docs.docker.com/compose/install/)
 3. Clone this repo
+4. Install [node.js](https://nodejs.org/)
 
 
 ## Steps to take
