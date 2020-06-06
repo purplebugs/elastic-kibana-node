@@ -12,7 +12,6 @@ Work in progress...
 
 Current status: The node.js app uses the Elasticsearch API to get info about the current cluster and indices and sends the response to http://0.0.0.0:8080
 
-
 ## Pre-Requisites
 
 1. Install [docker](https://docs.docker.com/install/)
@@ -157,3 +156,8 @@ Exit the container
 ```
 exit
 ```
+
+## Refereces
+
+* [Install Elasticsearch with Docker](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/docker.html)
+* [Running Kibana on Docker](https://www.elastic.co/guide/en/kibana/current/docker.html)
