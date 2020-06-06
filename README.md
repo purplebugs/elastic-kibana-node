@@ -157,7 +157,7 @@ Exit the container
 exit
 ```
 
-## Refereces
+## References
 
 * [Install Elasticsearch with Docker](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/docker.html)
 * [Running Kibana on Docker](https://www.elastic.co/guide/en/kibana/current/docker.html)
