@@ -95,7 +95,7 @@ docker-compose down
 
 ### Troubleshooting
 
-### Check the elasticsearch nodes are up and running
+#### Check the elasticsearch nodes are up and running
 
 Submit a _cat/nodes request:
 
