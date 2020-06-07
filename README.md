@@ -24,11 +24,10 @@ Current status: The node.js app uses the Elasticsearch API to get info about the
 
 1. Install the repo locally
 2. Build the node.js docker image
-2. Start the app
-3. Verify the app is running as expected
-4. Stop the app
-4. Optional: Become familiar with useful Docker commands
-
+3. Start the app
+4. Verify the app is running as expected
+5. Stop the app
+6. Troubleshooting
 
 ### Install the repo locally
 
@@ -39,22 +38,16 @@ Current status: The node.js app uses the Elasticsearch API to get info about the
 
 Navigate to the directory containing the Dockerfile
 
-```
-cd my_node_http_app
-```
+```cd my_node_http_app```
 
 Build a versioned image of the node.js app
 
-```
-docker build -t purplebugs/my_node_http_app:1.1 .
-```
+```docker build -t purplebugs/my_node_http_app:1.1 .```
 
 
 Optional: Verify the image is created by looking for the app tagged with that version
 
-```
-docker images
-```
+```docker images```
 
 The node.js app will not be running until the docker-compose command is run in the next step.
 
@@ -63,9 +56,7 @@ The node.js app will not be running until the docker-compose command is run in t
 
 Spin up a containerised instance of Elasticsearch, Kibana and the node.js application
 
-```
-docker-compose up
-```
+```docker-compose up```
 
 ### Verify the app is running as expected
 
@@ -73,43 +64,40 @@ Navigate to http://localhost:8080/
 
 You might need to wait around 20 seconds for Elasticsearch and Kibana to be up and running.
 
-
 The response should show the output of the node.js app.  Example response at the time of writing:
 
-```
-es01health status index uuid pri rep docs.count docs.deleted store.size pri.store.size green open .apm-custom-link K5QaClS7SDq5lXBUtRjaUA 1 1 0 0 416b 208b green open .kibana_task_manager_1 UQXPvUZQTCu0Kc4ChdtVBw 1 1 5 13 28.2kb 2.7kb green open .apm-agent-configuration H8cXd5CoTTqP8_Tv9YO2gA 1 1 0 0 416b 208b green open .kibana_1 XL3sZW0GRB6LMj4DQlIwHA 1 1 4 0 18.9kb 9.4kb
-```
+```es01health status index uuid pri rep docs.count docs.deleted store.size pri.store.size green open .apm-custom-link K5QaClS7SDq5lXBUtRjaUA 1 1 0 0 416b 208b green open .kibana_task_manager_1 UQXPvUZQTCu0Kc4ChdtVBw 1 1 5 13 28.2kb 2.7kb green open .apm-agent-configuration H8cXd5CoTTqP8_Tv9YO2gA 1 1 0 0 416b 208b green open .kibana_1 XL3sZW0GRB6LMj4DQlIwHA 1 1 4 0 18.9kb 9.4kb```
 
-Get familiar with the commands below for troubleshooting if the app is not as expected.
+See the Troubleshooting section below if the app is not running as expected
 
-Note: Kibana is now available at http://localhost:5601/
+Kibana is available at http://localhost:5601/ for working with the data and visualisations
+
 
 ### Stop the app
 
 Stop the containerised instance of Elasticsearch, Kibana and the node.js application
 
-```
-docker-compose down
-```
+```docker-compose down```
 
-### Optional: Become familiar with useful Docker commands
+### Troubleshooting
 
+### Check the elasticsearch nodes are up and running
 
-#### List the Docker containers
+Submit a _cat/nodes request:
 
-This will show a clean overview of containers and their states
+```curl -X GET "localhost:9200/_cat/nodes?v&pretty"```
 
-```docker-compose ps```
+#### Show Docker containers
 
+List the names and states of containers
 
-#### List the Docker containers and images
+```docker ps```
 
-This will show more info such as how long the containers have been running
+#### Show Docker logs
 
-```
-docker ps
-```
+Show the logs from a currently running container, eg to troubleshoot the Kibana container
 
+```docker logs kibana01```
 
 #### Stop the Docker container and persistent data
 
@@ -117,24 +105,17 @@ Useful if need to wipe all data and have a clean environment, eg due to old inco
 
 Stop and delete the data volumes:
 
-```
-docker-compose down -v
-```
+```docker-compose down -v```
 
-### List and remove the Docker images
+#### List and remove the Docker images
 
 This becomes useful if you have many older versions of the images lying about
 
 List the images and their ids:
-```
-docker images
-````
+```docker images```
 
 Remove the image by id. Example if the id is: 7ec4f35ab452
-
-```
-docker image rm 7ec4f35ab452
-```
+```docker image rm 7ec4f35ab452```
 
 
 #### Troubleshooting the node app
