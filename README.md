@@ -38,7 +38,7 @@ npm install
 
 ### Build the node.js docker image
 
-Note: Skip this step if you have already built this image in your environment previously
+Note: Skip this step if you have previously built this image in your environment
 
 Navigate to the directory containing the Dockerfile
 
