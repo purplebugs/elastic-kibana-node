@@ -82,6 +82,7 @@ es01health status index uuid pri rep docs.count docs.deleted store.size pri.stor
 
 See the Troubleshooting section below if the app is not running as expected
 
+Elasticsearch is available at http://localhost:9200/
 Kibana is available at http://localhost:5601/ for working with the data and visualisations
 
 
