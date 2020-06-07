@@ -6,7 +6,7 @@ Elasticsearch and Kibana v7.7.1, and a node.js app working together using Docker
 
 Have a simple way to quickly install and run Elasticsearch, Kibana and node.js together
 
-The larger goal is to automate getting data into Elasticsearch, and get the data showing on Kibana Dashboards as quickly and painlessly as possible
+The larger goal is to automate getting data into Elasticsearch and showing on Kibana Dashboardsfor playing around with different datasets in a development environment.
 
 Work in progress...
 
@@ -161,3 +161,4 @@ exit
 
 * [Install Elasticsearch with Docker](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/docker.html)
 * [Running Kibana on Docker](https://www.elastic.co/guide/en/kibana/current/docker.html)
+* [Dockerizing a Node.js web app](https://nodejs.org/fr/docs/guides/nodejs-docker-webapp/)
